@@ -1,6 +1,19 @@
+name: On Push Action
+
+on:
+  push:
+    branches:
+      - main  # Runs only when changes are pushed to the main branch
+
 jobs:
   test:
+    runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Clones the repository
+
       - name: 24f2004275@ds.study.iitm.ac.in
         run: echo "Hello, world!"
-      
+
+      - name: Verify Push
+        run: echo "This action runs on every push to the main branch!"
